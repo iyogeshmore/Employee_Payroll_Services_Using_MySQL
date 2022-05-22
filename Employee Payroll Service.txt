@@ -113,3 +113,19 @@ Query OK, 3 rows affected (0.02 sec)
 Records: 3  Duplicates: 0  Warnings: 0
 
 mysql>
+
+=========================================================================================
+#UC4-Retrieving all the employee payroll data that is added to payroll service database
+=========================================================================================
+
+mysql> SELECT * FROM employee_payroll;
++----+---------+----------+------------+
+| id | name    | salary   | start      |
++----+---------+----------+------------+
+|  1 | Bill    |  1000000 | 2018-01-03 |
+|  2 | Sofia   |    20000 | 2020-05-21 |
+|  3 | Kishlay | 15000000 | 2022-05-21 |
++----+---------+----------+------------+
+3 rows in set (0.00 sec)
+
+mysql>
