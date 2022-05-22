@@ -153,3 +153,67 @@ mysql> SELECT * FROM employee_payroll WHERE start BETWEEN CAST('2020-01-01' AS D
 2 rows in set (0.00 sec)
 
 mysql>
+
+=================================================================================================================
+#UC6-Ability to add Gender to Employee Payroll Table and Update the Rows to reflect the correct Employee Gender.
+=================================================================================================================
+
+mysql> ALTER TABLE employee_payroll ADD gender CHAR(1) AFTER name;
+Query OK, 0 rows affected (0.07 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE employee_payroll;
++--------+--------------+------+-----+---------+----------------+
+| Field  | Type         | Null | Key | Default | Extra          |
++--------+--------------+------+-----+---------+----------------+
+| id     | int unsigned | NO   | PRI | NULL    | auto_increment |
+| name   | varchar(150) | NO   |     | NULL    |                |
+| gender | char(1)      | YES  |     | NULL    |                |
+| salary | double       | NO   |     | NULL    |                |
+| start  | date         | NO   |     | NULL    |                |
++--------+--------------+------+-----+---------+----------------+
+5 rows in set (0.02 sec)
+
+mysql> UPDATE employee_payroll SET gender = 'M' WHERE id = 1;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+mysql> SELECT * FROM employee_payroll;
++----+---------+--------+----------+------------+
+| id | name    | gender | salary   | start      |
++----+---------+--------+----------+------------+
+|  1 | Bill    | M      |  1000000 | 2018-01-03 |
+|  2 | Sofia   |        |    20000 | 2020-05-21 |
+|  3 | Kishlay |        | 15000000 | 2022-05-21 |
++----+---------+--------+----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE employee_payroll SET gender = 'F' WHERE id = 2;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM employee_payroll;
++----+---------+--------+----------+------------+
+| id | name    | gender | salary   | start      |
++----+---------+--------+----------+------------+
+|  1 | Bill    | M      |  1000000 | 2018-01-03 |
+|  2 | Sofia   | F      |    20000 | 2020-05-21 |
+|  3 | Kishlay |        | 15000000 | 2022-05-21 |
++----+---------+--------+----------+------------+
+3 rows in set (0.00 sec)
+
+mysql> UPDATE employee_payroll SET gender = 'M' WHERE id = 3;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM employee_payroll;
++----+---------+--------+----------+------------+
+| id | name    | gender | salary   | start      |
++----+---------+--------+----------+------------+
+|  1 | Bill    | M      |  1000000 | 2018-01-03 |
+|  2 | Sofia   | F      |    20000 | 2020-05-21 |
+|  3 | Kishlay | M      | 15000000 | 2022-05-21 |
++----+---------+--------+----------+------------+
+3 rows in set (0.00 sec)
+
+mysql>
