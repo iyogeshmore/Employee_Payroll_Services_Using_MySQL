@@ -21,4 +21,55 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 #Welcome to Employee Payroll Service Program
 ===========================================================
 
+===========================================================
+#UC1-Creating Databases as Employee Payroll Services
+===========================================================
+
+mysql> show databases; #Show Database
++--------------------+
+| Database           |
++--------------------+
+| customers          |
+| customers3         |
+| friends            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| schoolstudents     |
+| students           |
+| sys                |
++--------------------+
+10 rows in set (0.00 sec)
+
+mysql> CREATE DATABASE payroll_service; #create a employee payroll database
+Query OK, 1 row affected (0.01 sec)
+
+mysql> show databases; #Showing Created Database
++--------------------+
+| Database           |
++--------------------+
+| customers          |
+| customers3         |
+| friends            |
+| information_schema |
+| mysql              |
+| payroll_service    |
+| performance_schema |
+| schoolstudents     |
+| students           |
+| sys                |
++--------------------+
+11 rows in set (0.00 sec)
+
+mysql> use payroll_service; 
+Database changed
+
+mysql> SELECT DATABASE(); #Selecting Employee Payroll Service Database
++-----------------+
+| DATABASE()      |
++-----------------+
+| payroll_service |
++-----------------+
+1 row in set (0.00 sec)
+
 mysql>
